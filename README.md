@@ -128,14 +128,5 @@ The model achieves high accuracy on the validation set with comprehensive evalua
 4. Test thoroughly
 5. Submit a pull request
 
-## 📄 License
-
-This project is open-source. Please check the license file for more details.
-
-## 📞 Support
-
-For questions or issues, please open an issue in the repository or contact the maintainers.
-
----
 
 **Built with ❤️ using PyTorch and Streamlit**
