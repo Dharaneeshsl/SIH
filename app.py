@@ -3,11 +3,13 @@ import torch
 from torchvision import models, transforms
 from PIL import Image
 import torch.nn as nn
+import os
 
 # Load the model
 model = models.efficientnet_b0(pretrained=False)
 model.classifier[1] = nn.Linear(1280, 6)  # Assuming 6 classes
-model.load_state_dict(torch.load('SIH/best_multi_breed_efficientnetb0_6class.pth', map_location=torch.device('cpu')))
+model_path = os.path.join(os.path.dirname(__file__), 'best_multi_breed_efficientnetb0_6class.pth')
+model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
 model.eval()
 
 # Image preprocessing
