@@ -183,7 +183,24 @@ st.markdown("""
 
 # --- Theme Switcher ---
 theme = st.selectbox("Choose Theme", ["Light", "Dark"], index=0)
-st.markdown(f'<style>[data-theme] {{ --theme: "{theme.lower()}" }}</style>', unsafe_allow_html=True)
+if theme == "Dark":
+    st.markdown(
+        """
+        <script>
+        document.documentElement.setAttribute('data-theme', 'dark');
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
+else:
+    st.markdown(
+        """
+        <script>
+        document.documentElement.removeAttribute('data-theme');
+        </script>
+        """,
+        unsafe_allow_html=True,
+    )
 
 # --- App Title ---
 st.markdown("<div class='app-title'>🐂 🐃 Smart Cattle & Buffalo Breed Classifier</div>", unsafe_allow_html=True)
