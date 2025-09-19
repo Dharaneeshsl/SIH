@@ -182,22 +182,43 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # --- Theme Switcher ---
-theme = st.selectbox("Choose Theme", ["Light", "Dark"], index=0)
-if theme == "Dark":
+dark_mode = st.checkbox("Enable Dark Mode", value=False)
+
+if dark_mode:
     st.markdown(
         """
-        <script>
-        document.documentElement.setAttribute('data-theme', 'dark');
-        </script>
+        <style>
+        :root {
+            --primary-color: #66bb6a;
+            --secondary-color: #388e3c;
+            --bg-color: #1e1e1e;
+            --text-color: #f0f0f0;
+            --accent-color: #a7f3d0;
+        }
+        .block-container {
+            background-color: var(--bg-color) !important;
+            color: var(--text-color) !important;
+        }
+        </style>
         """,
         unsafe_allow_html=True,
     )
 else:
     st.markdown(
         """
-        <script>
-        document.documentElement.removeAttribute('data-theme');
-        </script>
+        <style>
+        :root {
+            --primary-color: #4CAF50;
+            --secondary-color: #2e7d32;
+            --bg-color: #f9f9f9;
+            --text-color: #333;
+            --accent-color: #065f46;
+        }
+        .block-container {
+            background-color: var(--bg-color) !important;
+            color: var(--text-color) !important;
+        }
+        </style>
         """,
         unsafe_allow_html=True,
     )
